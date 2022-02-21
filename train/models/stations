@@ -1,0 +1,15 @@
+<?php
+
+class Stations{
+
+    static public function getAll(){
+        $statement = DB::connect()->prepare('SELECT * FROM stations');
+        $statement->execute();
+        return $statement->fetchAll();
+        $statement->close();
+        $statement = null;
+    }
+
+}
+
+?>
