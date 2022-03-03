@@ -25,35 +25,35 @@ class Trip
 	}
 
 
-	public function save()
+	public function saveTrip()
 	{
 		$ctn=new Connection();
-		$ctn->insert($this->table,["date_trip","start_time","return_time","start_station","return_station","price"],[$this->date_trip,$this->start_time,$this->return_time,$this->start_station,$this->return_station,$this->price]);
+		$ctn->insertTrip($this->table,["date_trip","start_time","return_time","start_station","return_station","price"],[$this->date_trip,$this->start_time,$this->return_time,$this->start_station,$this->return_station,$this->price]);
 	}
 
-	public static function select()
+	public static function selectTrip()
 	{
 		$ctn=new Connection();
-		return $ctn->selectAll("trips");
+		return $ctn->selectAllTrip("trips");
 	}
 
-	public static function delete($id_trip)
+	public static function deleteTrip($id_trip)
 	{
 		$ctn=new Connection();
-		return $ctn->delete("trips",$id_trip);
+		return $ctn->deleteTrip("trips",$id_trip);
 	}
 
 
-	public static function edit($id_trip)
+	public static function editTrip($id_trip)
 	{
 		$ctn=new Connection();
-		return $ctn->selectOne("trips",$id_trip);
+		return $ctn->selectOneTrip("trips",$id_trip);
 	}
 
-	public function update($id_trip)
+	public function updateTrip($id_trip)
 	{
 		$ctn=new Connection();
-		$ctn->update($this->table,["date_trip","start_time","return_time","start_station","return_station","price"],[$this->date_trip,$this->start_time,$this->return_time,$this->start_station,$this->return_station,$this->price],$id_trip);
+		$ctn->updateTrip($this->table,["date_trip","start_time","return_time","start_station","return_station","price"],[$this->date_trip,$this->start_time,$this->return_time,$this->start_station,$this->return_station,$this->price],$id_trip);
 	}
 
 }

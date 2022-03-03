@@ -4,48 +4,63 @@ require_once './views/includes/header.php'
 
 ?>
 
-    <table  class="table">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>date</th>
-                <th>start time</th>
-                <th>return time</th>
-                <th>start station</th>
-                <th>return station</th>
-                <th>price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($trips as $trip) {
-                echo 
-                    "<tr>
-                        <td>" . $trip['id_trip'] . "</td>
-                        <td>" . $trip['date_trip'] . "</td>
-                        <td>" . $trip['start_time'] . "</td>
-                        <td>" . $trip['return_time'] . "</td>
-                        <td>" . $trip['start_station'] . "</td>
-                        <td>" . $trip['return_station'] . "</td>
-                        <td>" . $trip['price'] . "</td>
-                        <td>
-                            <button class='btn btn-sm btn-warning'>
-                                <a href='http://localhost/my-projects/train/trip/edit/" . $trip['id_trip'] . "'>
-                                    <i class='fas fa-edit text-black'></i>
-                                </a>
-                            </button>
-                            <button class='btn btn-sm btn-danger'>
-                                <a href='http://localhost/my-projects/train/trip/delete/" . $trip['id_trip'] . "'>
-                                    <i class='fas fa-trash text-black'></i>
-                                </a>
-                            </button>
-                        <td>
-                    </tr>";
-            }
-            ?>
-        </tbody>
 
-    </table>
-</body>
+    <div class="container py-5">
 
-</html>
+        <button class='btn btn-sm btn-primary'>
+            <a href="http://localhost/my-projects/train/trip/createTrip ?> ">
+                <i class='fas fa-plus text-white'></i>
+            </a>
+        </button>
+
+        <table  class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>date</th>
+                    <th>start time</th>
+                    <th>return time</th>
+                    <th>start station</th>
+                    <th>return station</th>
+                    <th>price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($trips as $trip) {
+                    echo 
+                        "<tr>
+                            <td>" . $trip['id_trip'] . "</td>
+                            <td>" . $trip['date_trip'] . "</td>
+                            <td>" . $trip['start_time'] . "</td>
+                            <td>" . $trip['return_time'] . "</td>
+                            <td>" . $trip['start_station'] . "</td>
+                            <td>" . $trip['return_station'] . "</td>
+                            <td>" . $trip['price'] . "</td>
+                            <td>
+                                <button class='btn btn-sm btn-warning'>
+                                    <a href='http://localhost/my-projects/train/trip/editTrip/" . $trip['id_trip'] . "'>
+                                        <i class='fas fa-edit text-black'></i>
+                                    </a>
+                                </button>
+                                <button class='btn btn-sm btn-danger'>
+                                    <a href='http://localhost/my-projects/train/trip/deleteTrip/" . $trip['id_trip'] . "'>
+                                        <i class='fas fa-trash text-black'></i>
+                                    </a>
+                                </button>
+                            <td>
+                        </tr>";
+                }
+                ?>
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+<?php
+
+require_once './views/includes/footer.php'
+
+?>

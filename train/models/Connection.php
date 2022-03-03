@@ -26,7 +26,7 @@ class Connection
 			}
 	}
 
-	public function insert($table,$tableCln,$tableVal)
+	public function insertTrip($table,$tableCln,$tableVal)
 	{
 		$names="";
 		$values="";
@@ -45,19 +45,19 @@ class Connection
 		$query->execute();
 	}
 
-	public function selectAll($table)
+	public function selectAllTrip($table)
 	{
 		$query=$this->conn->prepare("SELECT * FROM `$table`");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
-	public function selectOne($table,$id_trip)
+	public function selectOneTrip($table,$id)
 	{
-		$query=$this->conn->prepare("SELECT * FROM `$table` where id_trip=$id_trip");
+		$query=$this->conn->prepare("SELECT * FROM `$table` where id_trip=$id");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
 	}
-	public function update($table,$tableCln,$tableVal,$id_trip)
+	public function updateTrip($table,$tableCln,$tableVal,$id)
 	{
 		$names="";
 		$vrls="";
@@ -69,13 +69,13 @@ class Connection
 			}
 			$names.=$vrls."`".$tableCln[$i]."`='".$tableVal[$i]."'";
 		}
-		$str="UPDATE $table SET $names WHERE id_trip=$id_trip";
+		$str="UPDATE $table SET $names WHERE id_trip=$id";
 		$query=$this->conn->prepare($str);
 		$query->execute();
 	}
-	public function delete($table,$id_trip)
+	public function deleteTrip($table,$id)
 	{
-		$query=$this->conn->prepare("DELETE FROM `$table` WHERE id_trip=$id_trip");
+		$query=$this->conn->prepare("DELETE FROM `$table` WHERE id_trip=$id");
 		$query->execute();
 	}
 

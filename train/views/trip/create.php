@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>create trip</title>
-</head>
-<body>
-	<form action="http://localhost/my-projects/train/trip/save" method="POST">
+<?php
+
+require_once './views/includes/header.php'
+
+?>
+
+<div class="contaner p-5">
+
+	<form action="http://localhost/my-projects/train/trip/saveTrip" method="POST" class="mr-1 d-flex flex-column gap-2">
 		<label>date of trip</label>
 		<input type="date" name="date_trip"><br>
 		<label>start time</label>
@@ -21,5 +21,10 @@
 		<input type="number" name="price"><br>
 		<button>save</button>
 	</form>
-</body>
-</html>
+
+</div>
+<?php
+
+require_once './views/includes/footer.php'
+
+?>
