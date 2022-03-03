@@ -1,7 +1,2 @@
-Options All -Indexes
-
-RewriteEngine On 
-
-RewriteBase /my-projects/brief-5/
-
-RewriteRule ^([-a-zA-Z0-9]+)$ index.php?page=$1
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ roote.php?p=$1
