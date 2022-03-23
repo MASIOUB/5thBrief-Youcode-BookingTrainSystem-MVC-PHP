@@ -54,7 +54,8 @@ require_once dirname(__DIR__) . "/includes/header.php";
                         <p class="card-text"><?= "Station Start:" . $key["start_station"] ?></p>
                         <p class="card-text"><?= "Return Start:" . $key["return_station"] ?></p>
                         <p class="card-text"><?= "Start Time:" . $key["start_time"] ?></p>
-                        <a class="btn text-light" href="<?= createLink("booking/create/" . $voyage["id"]) ?>">Book</a>
+                        <!-- <input type="hidden" > -->
+                        <a class="btn text-light" href="<?= createLink("booking/create/" . $key["id"]) ?>">Book</a>
                     </div>
                 </div>
     <?php endforeach;
